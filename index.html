@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 1st Anniversary</title>
+
+<!-- Tailwind CSS via CDN -->
+<script src="https://cdn.tailwindcss.com"></script>
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        colors: {
+          blush: '#FBE9EE',
+          rose: '#F3C7D3',
+          rosedeep: '#C97285',
+          rosetext: '#8A4A5A',
+          cream: '#FFFBFA',
+        },
+        fontFamily: {
+          script: ['"Dancing Script"', 'cursive'],
+          serif: ['"Playfair Display"', 'serif'],
+          sans: ['Inter', 'sans-serif'],
+        },
+      },
+    },
+  }
+</script>
+
+<style>
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: #FFFBFA;
+  }
+
+  /* Signature element: torn-paper / stitched scrapbook edge under hero */
+  .scrapbook-edge {
+    position: relative;
+  }
+  .scrapbook-edge::after {
+    content: "";
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    width: 100%;
+    height: 36px;
+    background-image: radial-gradient(circle at 10px 0, transparent 12px, #FFFBFA 13px);
+    background-size: 24px 24px;
+    background-repeat: repeat-x;
+  }
+
+  /* Polaroid photo frames for the two galleries */
+  .polaroid {
+    background: #fff;
+    padding: 10px 10px 32px 10px;
+    box-shadow: 0 6px 16px -4px rgba(138, 74, 90, 0.25), 0 2px 4px rgba(138,74,90,0.12);
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+    border-radius: 2px;
+  }
+  .polaroid:hover, .polaroid:active {
+    transform: translateY(-4px) rotate(0deg) !important;
+    box-shadow: 0 14px 24px -6px rgba(138, 74, 90, 0.35);
+    z-index: 10;
+  }
+  .polaroid img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    background-color: #FBE9EE;
+  }
+  .tilt-1 { transform: rotate(-3deg); }
+  .tilt-2 { transform: rotate(2deg); }
+  .tilt-3 { transform: rotate(-1.5deg); }
+  .tilt-4 { transform: rotate(3deg); }
+  .tilt-5 { transform: rotate(-2.5deg); }
+  .tilt-6 { transform: rotate(1.5deg); }
+
+  @media (min-width: 768px) {
+    .polaroid { padding: 14px 14px 40px 14px; }
+  }
+
+  /* Stitch/dashed divider used sparingly around the letter */
+  .stitch-divider {
+    border-top: 2px dashed #E3A6B6;
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .polaroid { transition: none; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Subtle floating heart animation in hero, kept minimal */
+  @keyframes drift {
+    0%   { transform: translateY(0) rotate(0deg); opacity: 0.55; }
+    50%  { transform: translateY(-14px) rotate(6deg); opacity: 0.85; }
+    100% { transform: translateY(0) rotate(0deg); opacity: 0.55; }
+  }
+  .drift { animation: drift 6s ease-in-out infinite; }
+  .drift-slow { animation: drift 8s ease-in-out infinite; }
+  @media (prefers-reduced-motion: reduce) {
+    .drift, .drift-slow { animation: none; }
+  }
+
+  /* Visible keyboard focus */
+  a:focus-visible, button:focus-visible {
+    outline: 2px solid #C97285;
+    outline-offset: 3px;
+  }
+</style>
+</head>
+
+<body class="bg-cream text-rosetext font-sans antialiased">
+
+  <!-- ============ HERO SECTION ============ -->
+  <header class="scrapbook-edge relative overflow-hidden bg-gradient-to-b from-blush via-rose/40 to-cream pb-16 pt-14 px-5 sm:pt-20 sm:pb-24">
+
+    <!-- subtle drifting heart accents -->
+    <span aria-hidden="true" class="drift absolute top-10 left-6 text-2xl sm:text-3xl select-none">🩷</span>
+    <span aria-hidden="true" class="drift-slow absolute top-24 right-8 text-xl sm:text-2xl select-none">🌸</span>
+    <span aria-hidden="true" class="drift absolute bottom-24 left-10 text-lg sm:text-xl select-none hidden sm:inline">💌</span>
+
+    <div class="max-w-3xl mx-auto text-center relative z-10">
+      <p class="font-script text-rosedeep text-2xl sm:text-3xl mb-2">Our First Year</p>
+
+      <h1 class="font-serif font-semibold text-rosetext text-4xl leading-tight sm:text-6xl sm:leading-tight tracking-tight px-1">
+        Happy 1st<br class="sm:hidden"> Anniversary!
+      </h1>
+
+      <p class="font-sans text-rosetext/80 text-base sm:text-xl mt-5 mb-10 max-w-xl mx-auto leading-relaxed px-2">
+        Three hundred sixty-five days with you, and every single one became a favorite memory. Here's to us, my love. ❤️
+      </p>
+
+      <!-- Main header image placeholder -->
+      <div class="polaroid inline-block max-w-xs sm:max-w-md mx-auto">
+        <img src="hero-main.jpg" alt="Our anniversary photo" class="w-full">
+        <p class="font-script text-rosedeep text-lg sm:text-xl text-center mt-2">You &amp; me, always</p>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- ============ THE 'HER' GALLERY ============ -->
+    <section class="px-5 py-14 sm:py-20 max-w-5xl mx-auto">
+      <div class="text-center mb-10 sm:mb-14">
+        <p class="font-script text-rosedeep text-xl sm:text-2xl mb-1">Simply her</p>
+        <h2 class="font-serif font-semibold text-3xl sm:text-5xl text-rosetext">The Girl I Adore</h2>
+        <p class="text-rosetext/70 text-sm sm:text-base mt-3 max-w-md mx-auto">Every angle, every smile, every little moment that makes you, you.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-12 place-items-center">
+        <div class="polaroid tilt-1 w-full max-w-[220px]">
+          <img src="her-1.jpg" alt="Her - photo 1">
+        </div>
+        <div class="polaroid tilt-2 w-full max-w-[220px]">
+          <img src="her-2.jpg" alt="Her - photo 2">
+        </div>
+        <div class="polaroid tilt-3 w-full max-w-[220px]">
+          <img src="her-3.jpg" alt="Her - photo 3">
+        </div>
+        <div class="polaroid tilt-4 w-full max-w-[220px]">
+          <img src="her-4.jpg" alt="Her - photo 4">
+        </div>
+        <div class="polaroid tilt-5 w-full max-w-[220px]">
+          <img src="her-5.jpg" alt="Her - photo 5">
+        </div>
+        <div class="polaroid tilt-6 w-full max-w-[220px]">
+          <img src="her-6.jpg" alt="Her - photo 6">
+        </div> 
+      </div>
+    </section>
+
+    <!-- ============ THE 'US' GALLERY ============ -->
+    <section class="px-5 py-14 sm:py-20 max-w-5xl mx-auto bg-blush/50 rounded-[2rem] mx-4 sm:mx-auto">
+      <div class="text-center mb-10 sm:mb-14">
+        <p class="font-script text-rosedeep text-xl sm:text-2xl mb-1">Together</p>
+        <h2 class="font-serif font-semibold text-3xl sm:text-5xl text-rosetext">Our Favorite Moments</h2>
+        <p class="text-rosetext/70 text-sm sm:text-base mt-3 max-w-md mx-auto">A year of dates, laughs, and quiet moments worth keeping forever.</p>
+      </div>
+
+      <div class="grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-8 sm:gap-x-8 sm:gap-y-12 place-items-center">
+        <div class="polaroid tilt-3 w-full max-w-[220px]">
+          <img src="us-1.jpg" alt="Us - photo 1">
+        </div>
+        <div class="polaroid tilt-5 w-full max-w-[220px]">
+          <img src="us-2.jpg" alt="Us - photo 2">
+        </div>
+        <div class="polaroid tilt-1 w-full max-w-[220px]">
+          <img src="us-3.jpg" alt="Us - photo 3">
+        </div>
+        <div class="polaroid tilt-6 w-full max-w-[220px]">
+          <img src="us-4.jpg" alt="Us - photo 4">
+        </div>
+        <div class="polaroid tilt-2 w-full max-w-[220px]">
+          <img src="us-5.jpg" alt="Us - photo 5">
+        </div>
+        <div class="polaroid tilt-4 w-full max-w-[220px]">
+          <img src="us-6.jpg" alt="Us - photo 6">
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ THE LOVE LETTER ============ -->
+    <section class="px-5 py-16 sm:py-24 bg-gradient-to-b from-cream via-rose/30 to-blush/60">
+      <div class="max-w-2xl mx-auto">
+        <p class="font-script text-rosedeep text-xl sm:text-2xl mb-1">a little letter, for you.</p>
+
+        <div class="bg-white rounded-lg shadow-[0_10px_40px_-10px_rgba(138,74,90,0.3)] px-6 py-10 sm:px-14 sm:py-16 relative">
+
+          <span aria-hidden="true" class="absolute -top-5 left-1/2 -translate-x-1/2 text-3xl">🩷</span>
+
+          <p class="font-script text-rosedeep text-3xl sm:text-4xl text-center mb-8 sm:mb-10">
+            Happy 1st Anniversary, my love. ❤️
+          </p>
+
+          <div class="font-serif text-rosetext text-[15px] sm:text-lg leading-relaxed sm:leading-loose space-y-0">
+
+            <p class="mb-4 sm:mb-6">Wala ko katuo nga one year na diay ta sukad nagsugod ta haha. So much has happened in these past twelve months, and every single moment with you has become a memory that I will always treasure.</p>
+
+            <p class="mb-4 sm:mb-6">Thank you for staying by my side through everything &mdash; the happy days, the stressful moments, the little misunderstandings. Despite everything, you chose to stay, to understand me, and to love me. I honestly don't think I say this enough, but I appreciate you more than words can ever express.</p>
+
+            <p class="mb-4 sm:mb-6">Kabalo ka, ever since na nagka-close ta, I've realized that you've been on my mind all the time. A simple conversation with you, your laugh, your random updates, your "good morningg" and "good nightt" messages &mdash; they became the best parts of my day. You became my comfort, my peace, and my favorite person.</p>
+
+            <p class="mb-4 sm:mb-6">Usahay dili ko maayo mo-express sa akong gibati. Dili ko pirmi kabalo unsaon pag-ingon sa sakto nga mga words, pero gusto nako nga makahibalo ka nga tinuod kaayo akong gugma para nimo. Every "I love you" I tell you comes from the deepest part of my heart.</p>
+
+            <p class="mb-4 sm:mb-6">Thank you for believing in me even when I doubt myself. Thank you for encouraging me to become a better person. Because of you, I learned to love more deeply, to be more patient, and to appreciate the little things in life.</p>
+
+            <p class="mb-4 sm:mb-6">I'm sorry for the times I've hurt you, whether intentionally or unintentionally. I know I'm not perfect, and I still have so much to learn. But one thing I can promise is that I will always choose you. I will continue working on myself because you deserve someone who gives you the best version of himself.</p>
+
+            <p class="mb-4 sm:mb-6">You are beautiful not just because of your smile or your eyes, but because of your heart. The way you care, the way you love, the way you make people around you feel valued... that's what makes you truly amazing. I hope you never forget how special you are.</p>
+
+            <p class="mb-4 sm:mb-6">Salamat kaayo sa tanan, baby. Salamat sa imong pasensya, sa imong pagsabot, sa imong paghigugma bisan sa akong mga flaws. Ikaw ang usa sa pinakamaayong butang nga nahitabo sa akong kinabuhi, ug wala gyud ko nagmahay nga ikaw akong gihigugma.</p>
+
+            <p class="mb-4 sm:mb-6">By celebrating our first anniversary, I don't just celebrate the memories we've made &mdash; I celebrate the amazing person I'm lucky enough to call mine, hehe. I know there will still be challenges ahead, but kung naa ka, kaya ra nato ni ma overcome bisan unsa, bahala na basta together ta.</p>
+
+            <p class="mb-4 sm:mb-6">I can't promise that every day will be perfect. I can't promise we will never argue or make mistakes. But I can promise that I will never stop choosing us. I will keep loving you, supporting you, respecting you, and reminding you every day how important you are to me.</p>
+
+            <p class="mb-4 sm:mb-6">My dream isn't just to spend another year with you. I want many more anniversaries. I want more adventures, more laughter, more late-night conversations, more random dates, more achievements together, and more memories that we'll look back on years from now.</p>
+
+            <p class="mb-4 sm:mb-6">No matter where life takes us, I hope you'll continue holding my hand. Because as long as you're beside me, I know I'll always be home.</p>
+
+            <p class="mb-4 sm:mb-6 stitch-divider pt-6 text-center font-script text-rosedeep text-2xl sm:text-3xl">Happy 1st Anniversary, my love.</p>
+
+            <p class="mb-4 sm:mb-6">Thank you for making this past year the happiest chapter of my life. Here's to our first anniversary, and to all the years that are still waiting for us.</p>
+
+            <p class="mb-6 sm:mb-8">I love you more than words can ever explain.</p>
+
+          </div>
+
+          <div class="text-right">
+            <p class="font-script text-rosedeep text-2xl sm:text-3xl leading-tight">Always and forever,<br>Your Baby ❤️</p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 px-5 bg-blush/60">
+      <p class="font-script text-rosedeep text-lg">Here's to forever, one year at a time.</p>
+    </footer>
+
+  </main>
+
+</body>
+</html>
